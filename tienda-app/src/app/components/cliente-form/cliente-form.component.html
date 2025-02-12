@@ -1,0 +1,46 @@
+<div class="container mt-5">
+    <div class="card shadow-lg p-4 rounded-4 border-0" style="max-width: 600px; margin: auto;">
+      <h2 class="text-center mb-4 text-primary fw-bold">
+        <i class="bi bi-person-circle"></i> {{ isEdit ? 'Editar Cliente' : 'Agregar Cliente' }}
+      </h2>
+      <form (ngSubmit)="saveCliente()">
+        <div class="mb-3">
+          <label for="nombre" class="form-label fw-bold text-secondary">Nombre</label>
+          <div class="input-group">
+            <span class="input-group-text bg-primary text-white"><i class="bi bi-person"></i></span>
+            <input type="text" class="form-control rounded-end" id="nombre" [(ngModel)]="cliente.nombre" name="nombre" required>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="apellidos" class="form-label fw-bold text-secondary">Apellidos</label>
+          <div class="input-group">
+            <span class="input-group-text bg-primary text-white"><i class="bi bi-people"></i></span>
+            <input type="text" class="form-control rounded-end" id="apellidos" [(ngModel)]="cliente.apellidos" name="apellidos" required>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label fw-bold text-secondary">Email</label>
+          <div class="input-group">
+            <span class="input-group-text bg-primary text-white"><i class="bi bi-envelope"></i></span>
+            <input type="email" class="form-control rounded-end" id="email" [(ngModel)]="cliente.email" name="email" required>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="direccion" class="form-label fw-bold text-secondary">Dirección</label>
+          <div class="input-group">
+            <span class="input-group-text bg-primary text-white"><i class="bi bi-geo-alt"></i></span>
+            <input type="text" class="form-control rounded-end" id="direccion" [(ngModel)]="cliente.direccion" name="direccion" required>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <button type="submit" class="btn btn-success px-4 rounded-pill">
+            <i class="bi bi-save"></i> Guardar
+          </button>
+          <a routerLink="/clientes" class="btn btn-danger px-4 rounded-pill">
+            <i class="bi bi-x-circle"></i> Cancelar
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+  

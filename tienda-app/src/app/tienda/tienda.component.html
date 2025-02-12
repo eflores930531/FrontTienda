@@ -1,0 +1,32 @@
+<div class="container mt-4">
+    <h2 class="text-center">Gestión de Tiendas</h2>
+  
+    <!-- Formulario -->
+    <form (ngSubmit)="agregarTienda()" class="mb-4 p-4 border rounded shadow bg-light">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input [(ngModel)]="nuevaTienda.sucursal" name="nombre" id="nombre" class="form-control" placeholder="Nombre" required />
+      </div>
+  
+      <div class="mb-3">
+        <label for="direccion" class="form-label">Dirección</label>
+        <input [(ngModel)]="nuevaTienda.direccion" name="direccion" id="direccion" class="form-control" placeholder="Dirección" required />
+      </div>
+  
+      <button type="submit" class="btn btn-primary w-100">
+        {{ editando ? 'Actualizar' : 'Agregar' }}
+      </button>
+    </form>
+  
+    <!-- Lista de Tiendas -->
+    <ul class="list-group">
+      <li *ngFor="let tienda of tiendas" class="list-group-item d-flex justify-content-between align-items-center">
+        <span>{{ tienda.sucursal }} - {{ tienda.direccion }}</span>
+        <div>
+          <button class="btn btn-warning btn-sm me-2" (click)="editarTienda(tienda)">Editar</button>
+          <button class="btn btn-danger btn-sm" (click)="eliminarTienda(tienda.tiendaID)">Eliminar</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  
